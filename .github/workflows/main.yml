@@ -11,15 +11,16 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
-    - name: Install, dependencies
+    - name: Install dependencies
       run: |
-        make install
+        pip install -r requirements.txt
+        pip install pylint  # Ensure pylint is installed
     - name: Lint with Pylint
-      run:
+      run: |
         make lint
     - name: Test with Pytest
-      run:
+      run: |
         make test
     - name: Format code with Python black
-      run:
+      run: |
         make format

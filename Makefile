@@ -1,14 +1,17 @@
 install:
 	pip install -r requirements.txt
 
-run:
-	python app.py
+# run:
+# 	python app.py
 
 format:
 	black *.py
 
 lint:
-	pylint --disable=R,C app.py
+	pylint --disable=R,C W1203, W0702 app.py
+
+test:
+	python -m pytest --vv cov=app test_app.py	
 
 all:
-	install lint run format
+	install lint test format

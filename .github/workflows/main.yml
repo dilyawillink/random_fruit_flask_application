@@ -9,22 +9,22 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Set up Python 3.11
-      uses: actions/setup-python@v4  # Updated to v4 for newer versions
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.11'  # Specify Python 3.11
+        python-version: '3.11'
 
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
         pip install pylint  # Ensure pylint is installed
-        
+
     - name: Display Python path
       run: |
         echo $(python -m site)
 
     - name: Lint with Pylint
       run: |
-        python -m pylint --disable=R,C,W1203,W0702 app.py  # Use `python -m pylint`
+        pylint --disable=R,C,W1203,W0702 app.py  # Make sure to use pylint directly
 
     - name: Test with Pytest
       run: |

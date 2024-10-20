@@ -1,4 +1,5 @@
 flask
+black
 pytest
 pytest-cov
 pylint
